@@ -1,0 +1,145 @@
+{
+  "_disclaimer": "IMPORTANT: All rules in this file are ILLUSTRATIVE EXAMPLES created for demonstration purposes only. They do NOT represent actual policies of any bank, RBI, NPCI, Visa, Mastercard, or any other financial institution or regulator.",
+  "version": "1.0.0",
+  "last_updated": "2024-01-01",
+  "policies": [
+    {
+      "id": "POL-001",
+      "title": "Failed Payment – Amount Debited",
+      "category": "failed_payment",
+      "keywords": ["debited", "failed", "not received", "merchant says", "payment failed", "deducted", "cut", "gaya", "kaat", "nahin mila", "nahi aaya"],
+      "rule_text": "If a customer's account is debited but the merchant's system does not show a successful payment, the transaction may be in a 'pending reversal' state. Under standard interbank settlement protocols (illustrative), the amount should auto-reverse within 3–5 business days. If not reversed, the customer may raise a dispute with supporting evidence.",
+      "evidence_required": [
+        "Screenshot or SMS showing account debit",
+        "Merchant order/transaction failure screenshot",
+        "Bank transaction ID or UPI reference number (UTR)",
+        "Date and approximate time of transaction",
+        "Merchant name and order ID (if available)"
+      ],
+      "resolution_timeline": "3–7 business days (illustrative)",
+      "escalation_threshold": "If not resolved in 7 business days",
+      "channels": ["upi", "card", "netbanking"]
+    },
+    {
+      "id": "POL-002",
+      "title": "Duplicate / Double Debit",
+      "category": "duplicate_debit",
+      "keywords": ["twice", "double", "duplicate", "two times", "debited twice", "do baar", "dobara", "same amount", "charged twice", "double charge"],
+      "rule_text": "When the same amount is debited multiple times for a single transaction intent, the excess debit(s) are considered erroneous. The customer is entitled to a reversal of the extra charge(s). The bank or payment processor must investigate within the prescribed timeline (illustrative: 10 business days) upon receipt of a formal dispute with evidence.",
+      "evidence_required": [
+        "Bank statement showing both/all debits",
+        "Transaction reference IDs for each debit",
+        "Merchant receipt or order confirmation (if only one order exists)",
+        "Date, time, and amount of each debit",
+        "Merchant contact or support ticket number (if raised)"
+      ],
+      "resolution_timeline": "5–10 business days (illustrative)",
+      "escalation_threshold": "If not resolved in 10 business days",
+      "channels": ["upi", "card", "netbanking", "wallet"]
+    },
+    {
+      "id": "POL-003",
+      "title": "Unauthorized Transaction",
+      "category": "unauthorized_transaction",
+      "keywords": ["unauthorized", "unknown", "fraud", "did not do", "not me", "stolen", "hacked", "mujhe pata nahi", "maine nahi kiya", "fraud hua", "chori", "unknown transaction", "suspicious", "unfamiliar"],
+      "rule_text": "If a customer reports a transaction they did not authorize, the case is classified as a potential fraud event. The customer must report the incident immediately to the bank's fraud helpline and block the affected instrument. Under illustrative zero-liability provisions, customers who report promptly and did not contribute to the fraud through negligence may be eligible for a full reversal after investigation.",
+      "evidence_required": [
+        "Transaction alert SMS or email",
+        "Customer declaration that the transaction was not authorized",
+        "Date and time the customer became aware of the transaction",
+        "Confirmation that card/UPI/credentials were not shared with anyone",
+        "Police FIR or complaint number (for high-value cases)",
+        "Any suspicious calls or messages received prior to the incident"
+      ],
+      "resolution_timeline": "7–10 business days for provisional credit; final resolution up to 45 days (illustrative)",
+      "escalation_threshold": "Immediate escalation if transaction > ₹50,000 or if card is compromised",
+      "channels": ["upi", "card", "netbanking", "wallet"]
+    },
+    {
+      "id": "POL-004",
+      "title": "Missing UPI Transaction Reference (UTR)",
+      "category": "missing_reference",
+      "keywords": ["UTR", "reference", "no confirmation", "no receipt", "transaction ID", "reference number", "pending", "processing", "stuck", "atka hua", "confirm nahi hua"],
+      "rule_text": "Every successful UPI transaction generates a Unique Transaction Reference (UTR) number. If a customer cannot locate a UTR but their account was debited, the transaction may be in a pending or failed state. The bank's core banking system must be checked against the NPCI settlement records (illustrative). Disputes without a UTR require the bank to trace the transaction using account details and timestamps.",
+      "evidence_required": [
+        "Account debit confirmation (SMS or bank statement)",
+        "Approximate transaction date and time",
+        "Destination UPI ID or account number",
+        "Transaction amount",
+        "UPI app name used (e.g., GPay, PhonePe, Paytm)"
+      ],
+      "resolution_timeline": "5–7 business days (illustrative)",
+      "escalation_threshold": "If transaction remains unresolved after 7 business days",
+      "channels": ["upi"]
+    },
+    {
+      "id": "POL-005",
+      "title": "Merchant Service Dispute – Product or Service Not Received",
+      "category": "merchant_dispute",
+      "keywords": ["not delivered", "not received", "service not provided", "product not received", "no delivery", "order not fulfilled", "refund from merchant", "merchant not responding", "mila nahi", "deliver nahi hua", "saman nahi aaya"],
+      "rule_text": "When a customer pays for goods or services that are not delivered or rendered, the transaction may be disputed as a 'services not rendered' or 'merchandise not received' case. For card transactions, this may qualify for a chargeback under the applicable card network rules (illustrative). For UPI payments, resolution depends on merchant cooperation or escalation to the payment aggregator.",
+      "evidence_required": [
+        "Payment confirmation and order receipt",
+        "Expected delivery date",
+        "Evidence of non-delivery (e.g., delivery tracker screenshot, merchant non-response)",
+        "Communication with merchant (chat logs, emails)",
+        "Merchant name, website, and order ID",
+        "Date payment was made"
+      ],
+      "resolution_timeline": "15–30 days depending on merchant response (illustrative)",
+      "escalation_threshold": "If merchant does not respond within 7 business days",
+      "channels": ["card", "netbanking", "upi"]
+    },
+    {
+      "id": "POL-006",
+      "title": "Refund Credited to Wrong Account",
+      "category": "wrong_credit",
+      "keywords": ["wrong account", "refund not received", "credited wrong", "different account", "galat account", "refund aaya nahi", "kisi aur ko gaya"],
+      "rule_text": "If a refund is initiated by the merchant but the customer does not receive it, the funds may have been credited to an incorrect or expired account. The bank must verify the beneficiary account details used in the refund transaction (illustrative). If an error is confirmed, the misdirected credit must be recalled and re-credited to the correct account within the prescribed timeline.",
+      "evidence_required": [
+        "Merchant refund confirmation with refund reference number",
+        "Customer's correct bank account or UPI ID",
+        "Original transaction details",
+        "Bank statement showing the refund was not received",
+        "Date refund was supposed to be processed"
+      ],
+      "resolution_timeline": "7–15 business days (illustrative)",
+      "escalation_threshold": "If refund not received 15 business days after merchant confirmation",
+      "channels": ["upi", "card", "netbanking"]
+    },
+    {
+      "id": "POL-007",
+      "title": "Escalation to Ombudsman / Regulatory Body",
+      "category": "escalation",
+      "keywords": ["escalate", "ombudsman", "RBI", "consumer forum", "not resolved", "bank not helping", "no response from bank", "complaint rejected", "bank ignored", "bank ne suna nahi", "RBI mein complaint"],
+      "rule_text": "If a complaint remains unresolved for more than 30 days after being filed with the bank, or if the customer is unsatisfied with the bank's final response, the customer may escalate to the Banking Ombudsman under the RBI's Integrated Ombudsman Scheme (illustrative reference only). Filing is free of charge and can be done online. The Ombudsman can award compensation up to the prescribed limit.",
+      "evidence_required": [
+        "Proof of complaint filed with the bank (complaint/ticket number)",
+        "Bank's response or rejection letter (if any)",
+        "All original transaction evidence",
+        "Timeline of events and communications",
+        "Customer's contact details and account information"
+      ],
+      "resolution_timeline": "Ombudsman typically resolves within 30 days of receiving complete complaint (illustrative)",
+      "escalation_threshold": "After 30 days of unresolved bank complaint",
+      "channels": ["upi", "card", "netbanking", "wallet"]
+    },
+    {
+      "id": "POL-008",
+      "title": "EMI / Subscription Charge Dispute",
+      "category": "recurring_charge",
+      "keywords": ["EMI", "subscription", "auto-debit", "recurring", "cancelled but charged", "unsubscribed", "automatic deduction", "auto pay", "mandate", "nach", "subscription cancel", "band karo", "rokna hai"],
+      "rule_text": "Customers who cancel a subscription or EMI mandate may still be charged if the cancellation was not processed before the next billing cycle. For NACH (National Automated Clearing House) mandates (illustrative), the customer may request a 'stop payment' instruction via their bank. For recurring card charges, the customer may request reversal of the charge and cancellation of the stored credential with evidence of prior cancellation.",
+      "evidence_required": [
+        "Proof of subscription/mandate cancellation (email, screenshot)",
+        "Date of cancellation",
+        "Bank debit transaction details",
+        "Merchant name and subscription plan details",
+        "Previous billing history (optional, helpful)"
+      ],
+      "resolution_timeline": "7–10 business days (illustrative)",
+      "escalation_threshold": "If charged again after confirmed cancellation",
+      "channels": ["card", "netbanking", "upi"]
+    }
+  ]
+}
